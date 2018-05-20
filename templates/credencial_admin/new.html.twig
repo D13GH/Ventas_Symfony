@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New CredencialAdmin{% endblock %}
+
+{% block body %}
+    <h1>Create new CredencialAdmin</h1>
+
+    {{ include('credencial_admin/_form.html.twig') }}
+
+    <a href="{{ path('credencial_admin_index') }}">back to list</a>
+{% endblock %}

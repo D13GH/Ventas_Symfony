@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Almacen{% endblock %}
+
+{% block body %}
+    <h1>Create new Almacen</h1>
+
+    {{ include('almacen/_form.html.twig') }}
+
+    <a href="{{ path('almacen_index') }}">back to list</a>
+{% endblock %}

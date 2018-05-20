@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Empleado index{% endblock %}
+
+{% block slidebar %}
+    <!-- Sidebar navigation-->
+    <nav class="sidebar-nav">
+        <ul id="sidebarnav">
+            <li class="nav-devider"></li>
+            <li class="nav-label">Home</li>
+            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-primary pull-right">3</span></span></a>
+                <ul aria-expanded="false" class="collapse">
+                    <li><a href="index.html">Dashboard 1 </a></li>
+                </ul>
+            </li>
+            <li class="nav-label">Administration</li>
+            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users "></i><span class="hide-menu">Cliente</span></a>
+                <ul aria-expanded="false" class="collapse">
+                    <li><a href="{{ path('cliente_index') }}">index</a></li>
+                </ul>
+            </li>
+            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-address-card "></i><span class="hide-menu">Empleado</span></a>
+                <ul aria-expanded="false" class="collapse">
+                    <li><a href="{{ path('empleado_index') }}">index</a></li>
+                </ul>
+            </li>
+
+            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-clipboard "></i><span class="hide-menu">Pedido</span></a>
+                <ul aria-expanded="false" class="collapse">
+                    <li><a href="{{ path('pedido_index') }}">index</a></li>
+                </ul>
+            </li>
+
+            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cubes "></i><span class="hide-menu">Producto</span></a>
+                <ul aria-expanded="false" class="collapse">
+                    <li><a href="{{ path('producto_index') }}">index</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+    <!-- End Sidebar navigation -->
+{% endblock %}
+
+{% block body %}
+    <div class="row bg-white m-l-0 m-r-0 box-shadow ">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Empleado index</h4>
+                    <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+
+                    <div class="table-responsive m-t-40">
+
+                        <button type="button" class="btn btn-dark btn-outline " onclick="location.href='{{ path('empleado_new') }}'"><i class="fa fa-plus"></i> Create New</button>
+
+                        <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Ape</th>
+                                <th>actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for empleado in empleados %}
+                                <tr>
+                                    <td>{{ empleado.id }}</td>
+                                    <td>{{ empleado.nombre }}</td>
+                                    <td>{{ empleado.ape }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-info" onclick="location.href='{{ path('empleado_show', {'id': empleado.id}) }}'"> <i class="fa fa-eye "></i> Show</button>
+                                            <button type="button" class="btn btn-info" onclick="location.href='{{ path('empleado_edit', {'id': empleado.id}) }}'"> <i class="fa fa-edit"></i> Edit</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="4">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Ape</th>
+                                <th>actions</th>
+                            </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

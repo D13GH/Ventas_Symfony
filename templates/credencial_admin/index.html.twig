@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CredencialAdmin index{% endblock %}
+
+{% block body %}
+    <h1>CredencialAdmin index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Pass</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for credencial_admin in credencial_admins %}
+            <tr>
+                <td>{{ credencial_admin.id }}</td>
+                <td>{{ credencial_admin.email }}</td>
+                <td>{{ credencial_admin.pass }}</td>
+                <td>
+                    <a href="{{ path('credencial_admin_show', {'id': credencial_admin.id}) }}">show</a>
+                    <a href="{{ path('credencial_admin_edit', {'id': credencial_admin.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('credencial_admin_new') }}">Create new</a>
+{% endblock %}

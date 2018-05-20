@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Almacen{% endblock %}
+
+{% block body %}
+    <h1>Edit Almacen</h1>
+
+    {{ include('almacen/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('almacen_index') }}">back to list</a>
+
+    {{ include('almacen/_delete_form.html.twig') }}
+{% endblock %}

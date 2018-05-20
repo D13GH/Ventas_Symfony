@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inventario index{% endblock %}
+
+{% block body %}
+    <h1>Inventario index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Existencia</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for inventario in inventarios %}
+            <tr>
+                <td>{{ inventario.id }}</td>
+                <td>{{ inventario.existencia }}</td>
+                <td>
+                    <a href="{{ path('inventario_show', {'id': inventario.id}) }}">show</a>
+                    <a href="{{ path('inventario_edit', {'id': inventario.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('inventario_new') }}">Create new</a>
+{% endblock %}

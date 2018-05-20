@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bitacora index{% endblock %}
+
+{% block body %}
+    <h1>Bitacora index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Token</th>
+                <th>FecIni</th>
+                <th>FecFin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bitacora in bitacoras %}
+            <tr>
+                <td>{{ bitacora.id }}</td>
+                <td>{{ bitacora.email }}</td>
+                <td>{{ bitacora.token }}</td>
+                <td>{{ bitacora.fecIni ? bitacora.fecIni|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ bitacora.fecFin ? bitacora.fecFin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('bitacora_show', {'id': bitacora.id}) }}">show</a>
+                    <a href="{{ path('bitacora_edit', {'id': bitacora.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('bitacora_new') }}">Create new</a>
+{% endblock %}

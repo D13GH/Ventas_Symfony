@@ -1,0 +1,32 @@
+{{ form_start(form) }}
+    {#{{ form_widget(form) }}#}
+
+    {{ form_row(form.nombre,
+        {
+            'attr':
+            {
+                'placeholder':'Nombre',
+                'class':'form-control',
+                'required':'true',
+                'data-validation-required-message':'Por favor introduce un nombre',
+                'type':'text'
+            }
+        })
+    }}
+    {{ form_row(form.ape,
+        {
+            'attr':
+            {
+                'placeholder':'Apellido',
+                'class':'form-control',
+                'required':'true',
+                'data-validation-required-message':'Por favor introduce un apellido',
+                'type':'text'
+            },
+            'label': 'Apellido'
+        })
+    }}
+    <br>
+    <button class="btn btn-success btn-block"><i class="fa fa-check "></i> {{ button_label|default('Save') }}</button>
+    <br>
+{{ form_end(form) }}

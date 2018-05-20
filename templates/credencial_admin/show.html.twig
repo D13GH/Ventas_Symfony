@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CredencialAdmin{% endblock %}
+
+{% block body %}
+    <h1>CredencialAdmin</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ credencial_admin.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ credencial_admin.email }}</td>
+            </tr>
+            <tr>
+                <th>Pass</th>
+                <td>{{ credencial_admin.pass }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('credencial_admin_index') }}">back to list</a>
+
+    <a href="{{ path('credencial_admin_edit', {'id': credencial_admin.id}) }}">edit</a>
+
+    {{ include('credencial_admin/_delete_form.html.twig') }}
+{% endblock %}

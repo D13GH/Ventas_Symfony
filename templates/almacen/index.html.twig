@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Almacen index{% endblock %}
+
+{% block body %}
+    <h1>Almacen index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for almacen in almacens %}
+            <tr>
+                <td>{{ almacen.id }}</td>
+                <td>{{ almacen.nombre }}</td>
+                <td>
+                    <a href="{{ path('almacen_show', {'id': almacen.id}) }}">show</a>
+                    <a href="{{ path('almacen_edit', {'id': almacen.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('almacen_new') }}">Create new</a>
+{% endblock %}

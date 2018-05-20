@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Almacen{% endblock %}
+
+{% block body %}
+    <h1>Almacen</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ almacen.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ almacen.nombre }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('almacen_index') }}">back to list</a>
+
+    <a href="{{ path('almacen_edit', {'id': almacen.id}) }}">edit</a>
+
+    {{ include('almacen/_delete_form.html.twig') }}
+{% endblock %}

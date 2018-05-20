@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CredencialAdmin{% endblock %}
+
+{% block body %}
+    <h1>Edit CredencialAdmin</h1>
+
+    {{ include('credencial_admin/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('credencial_admin_index') }}">back to list</a>
+
+    {{ include('credencial_admin/_delete_form.html.twig') }}
+{% endblock %}
