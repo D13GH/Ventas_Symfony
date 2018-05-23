@@ -3,45 +3,8 @@
 {% block title %}Empleado{% endblock %}
 
 {% block slidebar %}
-    <!-- Sidebar navigation-->
-    <nav class="sidebar-nav">
-        <ul id="sidebarnav">
-            <li class="nav-devider"></li>
-            <li class="nav-label">Home</li>
-            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-primary pull-right">3</span></span></a>
-                <ul aria-expanded="false" class="collapse">
-                    <li><a href="index.html">Dashboard 1 </a></li>
-                </ul>
-            </li>
-            <li class="nav-label">Administration</li>
-            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users "></i><span class="hide-menu">Cliente</span></a>
-                <ul aria-expanded="false" class="collapse">
-                    <li><a href="{{ path('cliente_index') }}">index</a></li>
-                </ul>
-            </li>
-            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-address-card "></i><span class="hide-menu">Empleado</span></a>
-                <ul aria-expanded="false" class="collapse">
-                    <li><a href="{{ path('empleado_index') }}">index</a></li>
-                </ul>
-            </li>
-
-            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-clipboard "></i><span class="hide-menu">Pedido</span></a>
-                <ul aria-expanded="false" class="collapse">
-                    <li><a href="{{ path('pedido_index') }}">index</a></li>
-                </ul>
-            </li>
-
-            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cubes "></i><span class="hide-menu">Producto</span></a>
-                <ul aria-expanded="false" class="collapse">
-                    <li><a href="{{ path('producto_index') }}">index</a></li>
-                </ul>
-            </li>
-
-        </ul>
-    </nav>
-    <!-- End Sidebar navigation -->
+    {{ include('view/admin/menu.html.twig') }}
 {% endblock %}
-
 
 {% block body %}
     <div class="row justify-content-center ">

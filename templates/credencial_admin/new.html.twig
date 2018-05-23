@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New CredencialAdmin{% endblock %}
+{% block slidebar %}
+    {{ include('view/admin/menu.html.twig') }}
+{% endblock %}
 
 {% block body %}
-    <h1>Create new CredencialAdmin</h1>
+    <div class="row justify-content-center ">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Create new Credencial Admin</h4>
+                    <button type="button" class="btn btn-dark btn-outline" onclick="location.href='{{ path('credencial_admin_index') }}'"><i class="fa fa-angle-left "></i> back to list</button>
 
-    {{ include('credencial_admin/_form.html.twig') }}
+                    {{ include('credencial_admin/_form.html.twig') }}
 
-    <a href="{{ path('credencial_admin_index') }}">back to list</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

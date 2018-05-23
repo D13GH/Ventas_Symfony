@@ -1,4 +1,148 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {#{{ form_widget(form) }}#}
+    {{ form_row(form.email,
+        {
+            'attr':
+            {
+                'placeholder':'e-Mail',
+                'class':'form-control',
+                'required':'true',
+                'data-validation-required-message':'Por favor introduce un correo',
+                'type':'text',
+                'readonly':''
+            },
+            'label': 'Email'
+        })
+    }}
+
+    {{ form_row(form.token,
+        {
+            'attr':
+            {
+                'placeholder':'Token',
+                'class':'form-control',
+                'required':'true',
+                'data-validation-required-message':'Por favor introduce un apellido',
+                'type':'text',
+                'readonly':''
+            },
+            'label': 'Token'
+        })
+    }}
+
+    <div class="card">
+        <h3 class="card-title">Fecha Inicio </h3>
+
+        {{ form_row(form.fecIni.date.year,
+            {
+                'attr':
+                {
+                    'class':'form-control',
+                    'disabled':''
+                },
+                'label': 'Año'
+            })
+        }}
+
+        {{ form_row(form.fecIni.date.month,
+            {
+                'attr':
+                {
+                    'class':'form-control',
+                    'disabled':''
+                },
+                'label': 'Mes'
+            })
+        }}
+        {{ form_row(form.fecIni.date.day,
+            {
+                'attr':
+                {
+                    'class':'form-control',
+                    'disabled':''
+                },
+                'label': 'Dia'
+            })
+        }}
+        {{ form_row(form.fecIni.time.hour,
+            {
+                'attr':
+                {
+                    'class':'form-control',
+                    'disabled':''
+                },
+                'label': 'Hora'
+            })
+        }}
+        {{ form_row(form.fecIni.time.minute,
+            {
+                'attr':
+                {
+                    'class':'form-control',
+                    'disabled':''
+                },
+                'label': 'Minuto'
+            })
+        }}
+    </div>
+
+    <div class="card">
+    <h3 class="card-title">Fecha Fin</h3>
+
+    {{ form_row(form.fecFin.date.year,
+        {
+            'attr':
+            {
+                'class':'form-control',
+                'disabled':''
+            },
+            'label': 'Año'
+        })
+    }}
+
+    {{ form_row(form.fecFin.date.month,
+        {
+            'attr':
+            {
+                'class':'form-control',
+                'disabled':''
+            },
+            'label': 'Mes'
+        })
+    }}
+    {{ form_row(form.fecFin.date.day,
+        {
+            'attr':
+            {
+                'class':'form-control',
+                'disabled':''
+            },
+            'label': 'Dia'
+        })
+    }}
+    {{ form_row(form.fecFin.time.hour,
+        {
+            'attr':
+            {
+                'class':'form-control',
+                'required':'true'
+            },
+            'label': 'Hora'
+        })
+    }}
+    {{ form_row(form.fecFin.time.minute,
+        {
+            'attr':
+            {
+                'class':'form-control',
+                'disabled':''
+            },
+            'label': 'Minuto'
+        })
+    }}
+</div>
+
+    <br>
+    <button class="btn btn-success btn-block"><i class="fa fa-check "></i> {{ button_label|default('Save') }}</button>
+    <br>
 {{ form_end(form) }}

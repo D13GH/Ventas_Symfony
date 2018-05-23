@@ -1,4 +1,27 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_row(form.idCredencial,
+        {
+            'attr':
+            {
+                'placeholder':'Credencial Empleado',
+                'class':'form-control',
+                'required':'true'
+            },
+            'label': 'Credencial Empleado'
+        })
+    }}
+    {{ form_row(form.idEmpleado,
+        {
+            'attr':
+            {
+                'placeholder':'Empleado',
+                'class':'form-control',
+                'required':'true'
+            },
+            'label': 'Empleado'
+        })
+    }}
+    <br>
+    <button class="btn btn-success btn-block"><i class="fa fa-check "></i> {{ button_label|default('Save') }}</button>
+    <br>
 {{ form_end(form) }}

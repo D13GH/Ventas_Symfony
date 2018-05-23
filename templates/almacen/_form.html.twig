@@ -1,4 +1,18 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {#{{ form_widget(form) }}#}
+    {{ form_row(form.nombre,
+        {
+            'attr':
+            {
+                'placeholder':'Nombre',
+                'class':'form-control',
+                'required':'true',
+                'data-validation-required-message':'Por favor introduce un nombre',
+                'type':'text'
+            }
+        })
+    }}
+    <br>
+    <button class="btn btn-success btn-block"><i class="fa fa-check "></i> {{ button_label|default('Save') }}</button>
+    <br>
 {{ form_end(form) }}

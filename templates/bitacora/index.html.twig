@@ -2,40 +2,70 @@
 
 {% block title %}Bitacora index{% endblock %}
 
+{% block slidebar %}
+    {{ include('view/admin/menu.html.twig') }}
+{% endblock %}
+
 {% block body %}
-    <h1>Bitacora index</h1>
+    <div class="row bg-white m-l-0 m-r-0 box-shadow ">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Email</th>
-                <th>Token</th>
-                <th>FecIni</th>
-                <th>FecFin</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for bitacora in bitacoras %}
-            <tr>
-                <td>{{ bitacora.id }}</td>
-                <td>{{ bitacora.email }}</td>
-                <td>{{ bitacora.token }}</td>
-                <td>{{ bitacora.fecIni ? bitacora.fecIni|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ bitacora.fecFin ? bitacora.fecFin|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('bitacora_show', {'id': bitacora.id}) }}">show</a>
-                    <a href="{{ path('bitacora_edit', {'id': bitacora.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                    <h4 class="card-title">Bitacora index</h4>
+                    <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
 
-    <a href="{{ path('bitacora_new') }}">Create new</a>
+                    <div class="table-responsive m-t-40">
+
+                        {#<button type="button" class="btn btn-dark btn-outline " onclick="location.href='{{ path('bitacora_new') }}'"><i class="fa fa-plus"></i> Create New</button>#}
+
+                        <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Email</th>
+                                <th>Token</th>
+                                <th>FecIni</th>
+                                <th>FecFin</th>
+                                <th>actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for bitacora in bitacoras %}
+                                <tr>
+                                    <td>{{ bitacora.id }}</td>
+                                    <td>{{ bitacora.email }}</td>
+                                    <td>{{ bitacora.token }}</td>
+                                    <td>{{ bitacora.fecIni ? bitacora.fecIni|date('Y-m-d H:i:s') : '' }}</td>
+                                    <td>{{ bitacora.fecFin ? bitacora.fecFin|date('Y-m-d H:i:s') : '' }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-info" onclick="location.href='{{ path('bitacora_show', {'id': bitacora.id}) }}'"> <i class="fa fa-eye "></i> Show</button>
+                                            {#<button type="button" class="btn btn-info" onclick="location.href='{{ path('bitacora_edit', {'id': bitacora.id}) }}'"> <i class="fa fa-edit"></i> Edit</button>#}
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="6">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Email</th>
+                                <th>Token</th>
+                                <th>FecIni</th>
+                                <th>FecFin</th>
+                                <th>actions</th>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -1,11 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New EmpleadoUsuario{% endblock %}
+{% block title %}New Empleado/Usuario{% endblock %}
+
+{% block slidebar %}
+    {{ include('view/admin/menu.html.twig') }}
+{% endblock %}
 
 {% block body %}
-    <h1>Create new EmpleadoUsuario</h1>
+    <div class="row justify-content-center ">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Create new Empleado/Usuario</h4>
+                    <button type="button" class="btn btn-dark btn-outline" onclick="location.href='{{ path('empleado_usuario_index') }}'"><i class="fa fa-angle-left "></i> back to list</button>
 
-    {{ include('empleado_usuario/_form.html.twig') }}
+                    {{ include('empleado_usuario/_form.html.twig') }}
 
-    <a href="{{ path('empleado_usuario_index') }}">back to list</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

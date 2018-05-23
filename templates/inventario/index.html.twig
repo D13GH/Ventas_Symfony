@@ -2,34 +2,66 @@
 
 {% block title %}Inventario index{% endblock %}
 
+{% block slidebar %}
+    {{ include('view/admin/menu.html.twig') }}
+{% endblock %}
+
 {% block body %}
-    <h1>Inventario index</h1>
+    <div class="row bg-white m-l-0 m-r-0 box-shadow ">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Existencia</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for inventario in inventarios %}
-            <tr>
-                <td>{{ inventario.id }}</td>
-                <td>{{ inventario.existencia }}</td>
-                <td>
-                    <a href="{{ path('inventario_show', {'id': inventario.id}) }}">show</a>
-                    <a href="{{ path('inventario_edit', {'id': inventario.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                    <h4 class="card-title">Cliente index</h4>
+                    <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
 
-    <a href="{{ path('inventario_new') }}">Create new</a>
+                    <div class="table-responsive m-t-40">
+
+                        <button type="button" class="btn btn-dark btn-outline " onclick="location.href='{{ path('inventario_new') }}'"><i class="fa fa-plus"></i> Create New</button>
+
+                        <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Almacen</th>
+                                <th>Producto</th>
+                                <th>Existencia</th>
+                                <th>actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for inventario in inventarios %}
+                                <tr>
+                                    <td>{{ inventario.id }}</td>
+                                    <td>{{ inventario.idAlmacen }}</td>
+                                    <td>{{ inventario.idProducto }}</td>
+                                    <td>{{ inventario.existencia }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-info" onclick="location.href='{{ path('inventario_show', {'id': inventario.id}) }}'"> <i class="fa fa-eye "></i> Show</button>
+                                            <button type="button" class="btn btn-info" onclick="location.href='{{ path('inventario_edit', {'id': inventario.id}) }}'"> <i class="fa fa-edit"></i> Edit</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="3">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Almacen</th>
+                                <th>Producto</th>
+                                <th>Existencia</th>
+                                <th>actions</th>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
