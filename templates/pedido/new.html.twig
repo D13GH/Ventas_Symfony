@@ -2,10 +2,22 @@
 
 {% block title %}New Pedido{% endblock %}
 
+{% block slidebar %}
+    {{ include('view/admin/menu.html.twig') }}
+{% endblock %}
+
 {% block body %}
-    <h1>Create new Pedido</h1>
+    <div class="row justify-content-center ">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Create new Pedido</h4>
+                    <button type="button" class="btn btn-dark btn-outline" onclick="location.href='{{ path('pedido_index') }}'"><i class="fa fa-angle-left "></i> back to list</button>
 
-    {{ include('pedido/_form.html.twig') }}
+                    {{ include('pedido/_form.html.twig') }}
 
-    <a href="{{ path('pedido_index') }}">back to list</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

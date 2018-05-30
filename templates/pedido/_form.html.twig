@@ -1,4 +1,135 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {#{{ form_widget(form) }}#}
+    {{ form_row(form.idEmpleado,
+        {
+            'attr':
+            {
+                'class':'form-control',
+                'required':'true',
+            },
+            'label':'Empleado'
+        })
+    }}
+    {{ form_row(form.idProducto,
+        {
+            'attr':
+            {
+                'class':'form-control',
+                'required':'true'
+            },
+            'label':'Producto'
+        })
+    }}
+    {{ form_row(form.idCliente,
+        {
+            'attr':
+            {
+                'class':'form-control',
+                'required':'true'
+            },
+            'label':'Cliente'
+        })
+    }}
+    <div class="card">
+        <h3 class="card-title">Fecha de pedido </h3>
+
+        {{ form_row(form.fecha.date.year,
+            {
+                'attr':
+                {
+                    'class':'form-control',
+                    'disabled':''
+                },
+                'label': 'Año'
+            })
+        }}
+
+        {{ form_row(form.fecha.date.month,
+            {
+                'attr':
+                {
+                    'class':'form-control',
+                    'disabled':''
+                },
+                'label': 'Mes'
+            })
+        }}
+        {{ form_row(form.fecha.date.day,
+            {
+                'attr':
+                {
+                    'class':'form-control',
+                    'disabled':''
+                },
+                'label': 'Dia'
+            })
+        }}
+        {{ form_row(form.fecha.time.hour,
+            {
+                'attr':
+                {
+                    'class':'form-control',
+                    'disabled':''
+                },
+                'label': 'Hora'
+            })
+        }}
+        {{ form_row(form.fecha.time.minute,
+            {
+                'attr':
+                {
+                    'class':'form-control',
+                    'disabled':''
+                },
+                'label': 'Minuto'
+            })
+        }}
+    </div>
+    <div class="card">
+        <h3 class="card-title">Fecha Entrega </h3>
+
+        {{ form_row(form.fechaEntrega.year,
+            {
+                'attr':
+                {
+                    'class':'form-control',
+                    'disabled':''
+                },
+                'label': 'Año'
+            })
+        }}
+
+        {{ form_row(form.fechaEntrega.month,
+            {
+                'attr':
+                {
+                    'class':'form-control',
+                    'disabled':''
+                },
+                'label': 'Mes'
+            })
+        }}
+        {{ form_row(form.fechaEntrega.day,
+            {
+                'attr':
+                {
+                    'class':'form-control',
+                    'disabled':''
+                },
+                'label': 'Dia'
+            })
+        }}
+        {{ form_row(form.idEstatus,
+            {
+                'attr':
+                {
+                    'class':'form-control'
+                },
+                'label': 'Estatus'
+            })
+        }}
+    </div>
+    <br>
+    <button class="btn btn-success btn-block">{{ button_label|default('Save') }}</button>
+    <br>
 {{ form_end(form) }}
