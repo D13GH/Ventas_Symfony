@@ -64,10 +64,12 @@ class Cliente
 
         return $this;
     }
+
+
     /**
-     * (Add this method into your class)
+     * Transform to string
      *
-     * @return string String representation of this class
+     * @return string
      */
     public function __toString()
     {

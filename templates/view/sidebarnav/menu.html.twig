@@ -2,23 +2,21 @@
 <nav class="sidebar-nav">
     <ul id="sidebarnav">
         <li class="nav-devider"></li>
-        <li class="nav-label">Home</li>
-        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-primary pull-right">3</span></span></a>
-            <ul aria-expanded="false" class="collapse">
-                <li><a href="index.html">Dashboard 1 </a></li>
-            </ul>
-        </li>
         <li class="nav-label">Administration</li>
+        {% if is_granted('ROLE_ADMIN') %}
         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-truck"></i><span class="hide-menu">Almacen</span></a>
             <ul aria-expanded="false" class="collapse">
                 <li><a href="{{ path('almacen_index') }}">index</a></li>
             </ul>
         </li>
+        {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-file "></i><span class="hide-menu">Bitacora</span></a>
             <ul aria-expanded="false" class="collapse">
                 <li><a href="{{ path('bitacora_index') }}">index</a></li>
             </ul>
         </li>
+        {% endif %}
         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user "></i><span class="hide-menu">Cliente</span></a>
             <ul aria-expanded="false" class="collapse">
                 <li><a href="{{ path('cliente_index') }}">index</a></li>
@@ -30,7 +28,7 @@
                 {#<li><a href="{{ path('credencial_empleado_index') }}">index</a></li>#}
             {#</ul>#}
         {#</li>#}
-
+        {% if is_granted('ROLE_ADMIN') %}
         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user-md "></i><span class="hide-menu">Empleado</span></a>
             <ul aria-expanded="false" class="collapse">
                 <li><a href="{{ path('empleado_index') }}">empleado</a></li>
@@ -38,6 +36,7 @@
                 <li><a href="{{ path('empleado_usuario_index') }}">empleado/credencial</a></li>
             </ul>
         </li>
+        {% endif %}
 
         {#<li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-address-card  "></i><span class="hide-menu">Empleado/Credencial</span></a>#}
             {#<ul aria-expanded="false" class="collapse">#}
@@ -45,11 +44,13 @@
             {#</ul>#}
         {#</li>#}
 
+        {% if is_granted('ROLE_ADMIN') %}
         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-folder-open "></i><span class="hide-menu">Inventario</span></a>
             <ul aria-expanded="false" class="collapse">
                 <li><a href="{{ path('inventario_index') }}">index</a></li>
             </ul>
         </li>
+        {% endif %}
         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-clipboard "></i><span class="hide-menu">Pedido</span></a>
             <ul aria-expanded="false" class="collapse">
                 <li><a href="{{ path('pedido_index') }}">index</a></li>

@@ -3,8 +3,17 @@
 {% block title %}Empleado{% endblock %}
 
 {% block slidebar %}
-    {{ include('view/admin/menu.html.twig') }}
+    {{ include('view/sidebarnav/menu.html.twig') }}
 {% endblock %}
+
+{%  block profile %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <img src="{{ asset('images/users/admin.png') }}" alt="admin" class="profile-pic" />
+    {% endif %}
+    {% if is_granted('ROLE_USER') %}
+        <img src="{{ asset('images/users/user.png') }}" alt="user" class="profile-pic" />
+    {% endif %}
+{%  endblock profile %}
 
 {% block body %}
     <div class="row justify-content-center ">
@@ -14,8 +23,6 @@
                     <h4 class="card-title">Empleado</h4>
 
                     <button type="button" class="btn btn-dark btn-outline" onclick="location.href='{{ path('empleado_index') }}'"><i class="fa fa-angle-left "></i> back to list</button>
-
-
 
                     <table class="table">
                         <tbody>

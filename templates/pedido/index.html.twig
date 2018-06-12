@@ -3,8 +3,17 @@
 {% block title %}Pedido index{% endblock %}
 
 {% block slidebar %}
-    {{ include('view/admin/menu.html.twig') }}
+    {{ include('view/sidebarnav/menu.html.twig') }}
 {% endblock %}
+
+{%  block profile %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <img src="{{ asset('images/users/admin.png') }}" alt="admin" class="profile-pic" />
+    {% endif %}
+    {% if is_granted('ROLE_USER') %}
+        <img src="{{ asset('images/users/user.png') }}" alt="user" class="profile-pic" />
+    {% endif %}
+{%  endblock profile %}
 
 {% block body %}
     <div class="row bg-white m-l-0 m-r-0 box-shadow ">
